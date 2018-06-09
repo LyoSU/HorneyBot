@@ -121,7 +121,7 @@ function animeInfo($id){
 }
 
 function animeUpdate($id){
-	global $_db, $tp_token, $video_token, $keyboard;
+	global $_db, $tp_token, $shikimori_video_token, $keyboard;
 
 	$animeInfo = mysqli_fetch_assoc( mysqli_query ( $_db, 'SELECT * FROM `anime` WHERE `id` = "' . $id . '" '  )  );
 
@@ -180,7 +180,7 @@ function animeUpdate($id){
 				];
 			}
 
-			$play = json_decode( sendGet ( 'https://shikimori.org/api/animes/' . $id . '/anime_videos?video_token='.$video_token ), true );
+			$play = json_decode( sendGet ( 'https://shikimori.org/api/animes/' . $id . '/anime_videos?video_token='.$shikimori_video_token ), true );
 
 			$sProv = [ 'vk.com', 'smotret-anime.ru' ];
 			$statusNum = [ 'anons' => 0, 'ongoing' => 1, 'released' => 2 ];
